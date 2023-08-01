@@ -56,7 +56,10 @@ export default function App() {
         <div className={styles.questions}>
           <span>Quantos stickers de cada?</span>
           <Stepper
+            minValue={0}
+            maxValue={100}
             value={value}
+            setValue={setValue}
             onChange={(e) => setValue(Number(e.target.value))}
           />
         </div>
