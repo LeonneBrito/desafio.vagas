@@ -17,6 +17,8 @@ export default function Textarea({ name, value, onChange }: TextareaProps) {
       onChange={onChange}
       className={styles.textArea}
       rows={7}
+      aria-label="Observações"
+      role="textbox"
     />
   )
 }

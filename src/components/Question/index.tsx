@@ -9,7 +9,7 @@ interface QuestionProps {
 
 export default function Question({ title, children }: QuestionProps) {
   return (
-    <div className={styles.questions}>
+    <div className={styles.questions} aria-label={`Questão: ${title}`}>
       <span>{title}</span>
       {children}
     </div>

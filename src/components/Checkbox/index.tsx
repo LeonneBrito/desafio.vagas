@@ -29,6 +29,8 @@ export default function Checkbox({
         checked={checked}
         onChange={onChange}
         disabled={disabled}
+        aria-label={label}
+        role="checkbox"
       />
       <span className={styles.checkmark} />
       {label}

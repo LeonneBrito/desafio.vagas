@@ -8,7 +8,7 @@ interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
 
 export default function Button({ children, ...props }: ButtonProps) {
   return (
-    <button {...props} className={styles.button}>
+    <button {...props} className={styles.button} role="button">
       {children}
     </button>
   )
