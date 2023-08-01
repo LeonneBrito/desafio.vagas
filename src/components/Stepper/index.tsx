@@ -1,3 +1,5 @@
+import { Plus, Minus } from 'phosphor-react'
+
 import styles from './styles.module.scss'
 
 interface StepperProps {
@@ -24,7 +26,7 @@ export default function Stepper({
         onClick={() => value > minValue && setValue(value - 1)}
         disabled={value === minValue}
       >
-        -
+        <Minus size={24} weight="bold" />
       </button>
       <input
         type="number"
@@ -42,7 +44,7 @@ export default function Stepper({
         onClick={() => value < maxValue && setValue(value + 1)}
         disabled={value === maxValue}
       >
-        +
+        <Plus size={24} weight="bold" />
       </button>
     </div>
   )
