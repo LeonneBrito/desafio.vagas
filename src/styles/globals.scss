@@ -52,3 +52,12 @@ h2 {
 button {
   cursor: pointer;
 }
+
+.box {
+  background-color: var(--gray-50);
+  border-radius: 8px;
+  box-shadow: 10px 22px 34px 0 rgba(0, 0, 0, 0.5);
+  margin: 20px auto;
+  overflow: hidden;
+  width: 550px;
+}
