@@ -3,12 +3,14 @@ import { useState } from 'react'
 import Checkbox from './components/Checkbox'
 import Footer from './components/Footer'
 import Header from './components/Header'
+import Textarea from './components/Textarea'
+import Stepper from './components/Stepper'
 
 import styles from './styles/Home.module.scss'
-import Textarea from './components/Textarea'
 
 export default function App() {
   const [text, setText] = useState<string>('')
+  const [value, setValue] = useState<number>(0)
   const [selectedOptions, setSelectedOptions] = useState<string[]>([])
 
   const handleCheckboxChange = (event: React.ChangeEvent<HTMLInputElement>) => {
@@ -53,6 +55,10 @@ export default function App() {
         </div>
         <div className={styles.questions}>
           <span>Quantos stickers de cada?</span>
+          <Stepper
+            value={value}
+            onChange={(e) => setValue(Number(e.target.value))}
+          />
         </div>
         <div className={styles.questions}>
           <span>Observações:</span>

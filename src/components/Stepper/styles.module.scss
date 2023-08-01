@@ -1,0 +1,34 @@
+.stepper {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.stepperButton {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 42px;
+  height: 42px;
+  border-radius: 4px;
+  background-color: var(--dark-blue-600);
+  color: var(--white);
+  font-size: 32px;
+  outline: 0;
+  border: 0;
+  cursor: pointer;
+}
+
+.stepperInput {
+  width: 60px;
+  height: 42px;
+  border-radius: 4px;
+  border: 2px solid var(--dark-blue-600);
+  font-size: 18px;
+  font-weight: 600;
+  text-align: center;
+  outline: 0;
+  padding: 0 8px;
+  color: var(--black);
+  background-color: var(--gray-100);
+}

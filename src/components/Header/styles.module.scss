@@ -1,4 +1,6 @@
 .header {
+  display: flex;
+  align-items: center;
   background: url(./header.png) center right no-repeat;
   background-size: cover;
   height: 187px;
@@ -9,12 +11,13 @@
 
 .title {
   color: #fff;
-  font-size: 23px;
+  font-size: 24px;
   font-weight: 300;
+  line-height: 35px;
 
   & > span {
     font-weight: bold;
     font-size: 24px;
-    line-height: 1.46;
+    line-height: 35px;
   }
 }
