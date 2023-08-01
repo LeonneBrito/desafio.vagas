@@ -1,8 +1,6 @@
 import { useState } from 'react'
 
 import Checkbox from './components/Checkbox'
-import Footer from './components/Footer'
-import Header from './components/Header'
 import Textarea from './components/Textarea'
 import Stepper from './components/Stepper'
 
@@ -24,55 +22,51 @@ export default function App() {
   }
 
   return (
-    <section className="box">
-      <Header />
-      <form className={styles.form}>
-        <div className={styles.questions}>
-          <span>Quais stickers?</span>
-          <div className={styles.options}>
-            <Checkbox
-              checked={selectedOptions.includes('react')}
-              label="React"
-              name="react"
-              value="react"
-              onChange={(e) => handleCheckboxChange(e)}
-            />
-            <Checkbox
-              checked={selectedOptions.includes('vue')}
-              label="Vue"
-              name="vue"
-              value="vue"
-              onChange={(e) => handleCheckboxChange(e)}
-            />
-            <Checkbox
-              checked={selectedOptions.includes('angular')}
-              label="Angular"
-              name="angular"
-              value="angular"
-              onChange={(e) => handleCheckboxChange(e)}
-            />
-          </div>
-        </div>
-        <div className={styles.questions}>
-          <span>Quantos stickers de cada?</span>
-          <Stepper
-            minValue={0}
-            maxValue={100}
-            value={value}
-            setValue={setValue}
-            onChange={(e) => setValue(Number(e.target.value))}
+    <form className={styles.form}>
+      <div className={styles.questions}>
+        <span>Quais stickers?</span>
+        <div className={styles.options}>
+          <Checkbox
+            checked={selectedOptions.includes('react')}
+            label="React"
+            name="react"
+            value="react"
+            onChange={(e) => handleCheckboxChange(e)}
+          />
+          <Checkbox
+            checked={selectedOptions.includes('vue')}
+            label="Vue"
+            name="vue"
+            value="vue"
+            onChange={(e) => handleCheckboxChange(e)}
+          />
+          <Checkbox
+            checked={selectedOptions.includes('angular')}
+            label="Angular"
+            name="angular"
+            value="angular"
+            onChange={(e) => handleCheckboxChange(e)}
           />
         </div>
-        <div className={styles.questions}>
-          <span>Observações:</span>
-          <Textarea
-            name="observations"
-            onChange={(e) => setText(e.target.value)}
-            value={text}
-          />
-        </div>
-      </form>
-      <Footer />
-    </section>
+      </div>
+      <div className={styles.questions}>
+        <span>Quantos stickers de cada?</span>
+        <Stepper
+          minValue={0}
+          maxValue={100}
+          value={value}
+          setValue={setValue}
+          onChange={(e) => setValue(Number(e.target.value))}
+        />
+      </div>
+      <div className={styles.questions}>
+        <span>Observações:</span>
+        <Textarea
+          name="observations"
+          onChange={(e) => setText(e.target.value)}
+          value={text}
+        />
+      </div>
+    </form>
   )
 }
