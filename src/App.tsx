@@ -3,8 +3,11 @@ import { useState } from 'react'
 import Checkbox from './components/Checkbox'
 import Textarea from './components/Textarea'
 import Stepper from './components/Stepper'
+import Question from './components/Question'
 
 import styles from './styles/Home.module.scss'
+
+import { stickerOptions } from './lib/stickerOptions'
 
 export default function App() {
   const [text, setText] = useState<string>('')
@@ -22,35 +25,24 @@ export default function App() {
   }
 
   return (
-    <form className={styles.form}>
+    <form className={styles.form} onSubmit={() => console.log('Teste')}>
       <div className={styles.questions}>
-        <span>Quais stickers?</span>
-        <div className={styles.options}>
-          <Checkbox
-            checked={selectedOptions.includes('react')}
-            label="React"
-            name="react"
-            value="react"
-            onChange={(e) => handleCheckboxChange(e)}
-          />
-          <Checkbox
-            checked={selectedOptions.includes('vue')}
-            label="Vue"
-            name="vue"
-            value="vue"
-            onChange={(e) => handleCheckboxChange(e)}
-          />
-          <Checkbox
-            checked={selectedOptions.includes('angular')}
-            label="Angular"
-            name="angular"
-            value="angular"
-            onChange={(e) => handleCheckboxChange(e)}
-          />
-        </div>
+        <Question title="Quais stickers?">
+          <div className={styles.options}>
+            {stickerOptions.map((option) => (
+              <Checkbox
+                key={option.value}
+                checked={selectedOptions.includes(option.value)}
+                label={option.label}
+                name={option.value}
+                value={option.value}
+                onChange={(e) => handleCheckboxChange(e)}
+              />
+            ))}
+          </div>
+        </Question>
       </div>
-      <div className={styles.questions}>
-        <span>Quantos stickers de cada?</span>
+      <Question title="Quantos stickers de cada?">
         <Stepper
           minValue={0}
           maxValue={100}
@@ -58,15 +50,14 @@ export default function App() {
           setValue={setValue}
           onChange={(e) => setValue(Number(e.target.value))}
         />
-      </div>
-      <div className={styles.questions}>
-        <span>Observações:</span>
+      </Question>
+      <Question title="Observações:">
         <Textarea
           name="observations"
           onChange={(e) => setText(e.target.value)}
           value={text}
         />
-      </div>
+      </Question>
     </form>
   )
 }
