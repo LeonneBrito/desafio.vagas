@@ -13,13 +13,11 @@ import { stickerOptions } from './lib/stickerOptions'
 export default function App() {
   const { state, dispatch } = useFormContext()
 
-  const handleChangeQuantity = (e: React.ChangeEvent<HTMLInputElement>) => {
+  const handleChangeQuantity = (e: ChangeEvent<HTMLInputElement>) => {
     dispatch({ type: 'SET_QUANTITY', quantity: Number(e.target.value) })
   }
 
-  const handleChangeObservations = (
-    e: React.ChangeEvent<HTMLTextAreaElement>,
-  ) => {
+  const handleChangeObservations = (e: ChangeEvent<HTMLTextAreaElement>) => {
     dispatch({ type: 'SET_OBSERVATIONS', observations: e.target.value })
   }
 
