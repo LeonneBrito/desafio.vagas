@@ -1,3 +1,5 @@
+import { useState } from 'react'
+
 import Checkbox from './components/Checkbox'
 import Footer from './components/Footer'
 import Header from './components/Header'
@@ -5,6 +7,18 @@ import Header from './components/Header'
 import styles from './styles/Home.module.scss'
 
 export default function App() {
+  const [selectedOptions, setSelectedOptions] = useState<string[]>([])
+
+  const handleCheckboxChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    const { checked, value } = event.target
+
+    if (checked) {
+      setSelectedOptions([...selectedOptions, value])
+    } else {
+      setSelectedOptions(selectedOptions.filter((option) => option !== value))
+    }
+  }
+
   return (
     <section className="box">
       <Header />
@@ -13,25 +27,25 @@ export default function App() {
           <span>Quais stickers?</span>
           <div className={styles.options}>
             <Checkbox
-              checked={true}
+              checked={selectedOptions.includes('react')}
               label="React"
               name="react"
-              onChange={() => {}}
               value="react"
+              onChange={(e) => handleCheckboxChange(e)}
             />
             <Checkbox
-              checked={true}
+              checked={selectedOptions.includes('vue')}
               label="Vue"
               name="vue"
-              onChange={() => {}}
               value="vue"
+              onChange={(e) => handleCheckboxChange(e)}
             />
             <Checkbox
-              checked={true}
+              checked={selectedOptions.includes('angular')}
               label="Angular"
               name="angular"
-              onChange={() => {}}
               value="angular"
+              onChange={(e) => handleCheckboxChange(e)}
             />
           </div>
         </div>
