@@ -5,8 +5,10 @@ import Footer from './components/Footer'
 import Header from './components/Header'
 
 import styles from './styles/Home.module.scss'
+import Textarea from './components/Textarea'
 
 export default function App() {
+  const [text, setText] = useState<string>('')
   const [selectedOptions, setSelectedOptions] = useState<string[]>([])
 
   const handleCheckboxChange = (event: React.ChangeEvent<HTMLInputElement>) => {
@@ -54,6 +56,11 @@ export default function App() {
         </div>
         <div className={styles.questions}>
           <span>Observações:</span>
+          <Textarea
+            name="observations"
+            onChange={(e) => setText(e.target.value)}
+            value={text}
+          />
         </div>
       </form>
       <Footer />
