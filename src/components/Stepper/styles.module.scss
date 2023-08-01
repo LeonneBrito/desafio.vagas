@@ -13,7 +13,7 @@
   border-radius: 4px;
   background-color: var(--dark-blue-600);
   color: var(--white);
-  font-size: 32px;
+  font-size: 40px;
   outline: 0;
   border: 0;
   cursor: pointer;
@@ -37,4 +37,9 @@
   padding: 0 8px;
   color: var(--black);
   background-color: var(--gray-100);
+
+  &::-webkit-outer-spin-button, &::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+  }
 }
