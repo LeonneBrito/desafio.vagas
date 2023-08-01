@@ -5,8 +5,6 @@ import styles from './styles.module.scss'
 export default function Footer() {
   const { state, handleSubmit } = useFormContext()
 
-  console.log({ state: state.submit })
-
   return (
     <footer className={styles.footer}>
       {state.loading ? (
