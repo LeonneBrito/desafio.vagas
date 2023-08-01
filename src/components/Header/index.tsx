@@ -9,7 +9,7 @@ export default function Header() {
           <br />
           para compra de
           <br />
-          Pacote de Stickers
+          <b>Pacote de Stickers</b>
         </span>
       </div>
     </header>
