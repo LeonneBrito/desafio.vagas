@@ -26,6 +26,12 @@
     background-color: var(--dark-blue-600);
   }
 
+  & > input:disabled ~ .checkmark {
+    background-color: var(--gray-200);
+    cursor: not-allowed;
+  }
+
+
   & > input:checked ~ .checkmark:after {
     display: block;
   }
