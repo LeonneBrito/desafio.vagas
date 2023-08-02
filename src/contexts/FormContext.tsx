@@ -20,15 +20,15 @@ interface FormProviderProps {
   children: ReactNode
 }
 
-const initialState = {
-  stickers: [] as ISticker[],
+const initialState: IFormState = {
+  stickers: [],
   quantity: 0,
   observations: '',
   loading: false,
   submit: {
     success: false,
     message: '',
-  } satisfies ISubmit,
+  },
 }
 
 type FormAction =
@@ -73,16 +73,18 @@ const FormContext = createContext<{
   state: IFormState
   dispatch: Dispatch<FormAction>
   handleSubmit: () => void
+  handleReset: () => void
 }>({
   state: initialState,
   dispatch: () => null,
   handleSubmit: () => null,
+  handleReset: () => null,
 })
 
 const FormProvider = ({ children }: FormProviderProps) => {
   const [state, dispatch] = useReducer(formReducer, initialState)
 
-  const handleSubmit = () => {
+  const handleSubmit = async () => {
     if (state.stickers.length === 0 || state.quantity === 0) {
       dispatch({
         type: 'SUBMIT',
@@ -94,35 +96,29 @@ const FormProvider = ({ children }: FormProviderProps) => {
 
     dispatch({ type: 'SET_LOADING', loading: true })
 
-    new Promise<void>((resolve) => {
-      setTimeout(() => {
-        resolve()
-      }, 2000)
-    })
-      .then(() => {
-        dispatch({ type: 'SET_LOADING', loading: false })
-        dispatch({
-          type: 'SUBMIT',
-          success: true,
-          message: 'Formulário enviado com sucesso!',
-        })
+    try {
+      await new Promise<void>((resolve) => setTimeout(resolve, 2000))
+      dispatch({ type: 'SET_LOADING', loading: false })
+      dispatch({
+        type: 'SUBMIT',
+        success: true,
+        message: 'Formulário enviado com sucesso!',
+      })
+      await new Promise<void>((resolve) => setTimeout(resolve, 1000))
+      dispatch({ type: 'RESET_FORM' })
+    } catch (error) {
+      console.error('Error occurred:', error)
+    }
+  }
 
-        return new Promise<void>((resolve) => {
-          setTimeout(() => {
-            resolve()
-          }, 1000)
-        })
-      })
-      .then(() => {
-        dispatch({ type: 'RESET_FORM' })
-      })
-      .catch((error) => {
-        console.error('Error occurred:', error)
-      })
+  const handleReset = () => {
+    dispatch({ type: 'RESET_FORM' })
   }
 
   return (
-    <FormContext.Provider value={{ state, dispatch, handleSubmit }}>
+    <FormContext.Provider
+      value={{ state, dispatch, handleSubmit, handleReset }}
+    >
       {children}
     </FormContext.Provider>
   )
