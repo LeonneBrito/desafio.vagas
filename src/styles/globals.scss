@@ -16,6 +16,25 @@
   --dark-blue-700: #191847;
 }
 
+:root.dark {
+  --white: #071723;
+  --black: #fff;
+
+  --gray-50: #1a1e21;
+  --gray-100: #232c32;
+  --gray-200: #2d3942;
+  --gray-800: #c3c3c3;
+
+  --red-500: #F33232;
+  --pink-500: #F59393;
+  --green-500: #00C57C;
+  --purple-500: #663399;
+
+  --dark-blue-600: #2F3676;
+  --dark-blue-700: #191847;
+}
+
+
 * {
   margin: 0;
   padding: 0;
@@ -71,4 +90,10 @@ button {
     width: 100%;
     height: 100%;
   }
+}
+
+.box.dark {
+  background-color: var(--gray-100);
+  color: var(--black);
+  box-shadow: 10px 22px 34px 0 rgba(0, 0, 0, 0.2);
 }

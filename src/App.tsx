@@ -1,4 +1,5 @@
 import { ChangeEvent } from 'react'
+import { useTheme } from './contexts/ThemeContext'
 import { useFormContext } from './contexts/FormContext'
 
 import Stepper from './components/Stepper'
@@ -9,6 +10,7 @@ import Question from './components/Question'
 import styles from './styles/Home.module.scss'
 
 import { stickerOptions } from './lib/stickerOptions'
+import Toggle from './components/Toggle'
 
 export default function App() {
   const { state, dispatch } = useFormContext()
@@ -39,6 +41,7 @@ export default function App() {
 
   return (
     <form className={styles.form} aria-label="Formulário de compra de stickers">
+      <Toggle />
       <Question title="Quais stickers?">
         <div className={styles.options}>
           {stickerOptions.map((option) => (

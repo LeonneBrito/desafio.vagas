@@ -2,17 +2,17 @@ import React from 'react'
 import ReactDOM from 'react-dom/client'
 
 import App from './App.tsx'
+import Providers from './providers/index.tsx'
 import RootLayout from './layouts/RootLayout.tsx'
-import { FormProvider } from './contexts/FormContext.tsx'
 
 import './styles/globals.scss'
 
 ReactDOM.createRoot(document.getElementById('root')!).render(
   <React.StrictMode>
-    <FormProvider>
+    <Providers>
       <RootLayout>
         <App />
       </RootLayout>
-    </FormProvider>
+    </Providers>
   </React.StrictMode>,
 )
