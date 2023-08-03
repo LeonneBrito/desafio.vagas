@@ -51,6 +51,7 @@ Esse projeto foi construido com as seguintes tecnologias:
 - [SASS](https://sass-lang.com/)
 - [Vite](https://vitejs.dev/)
 - [SWC](https://swc.rs/)
+- [Cypress](https://www.cypress.io/)
 
 # :computer: Como testar
 
