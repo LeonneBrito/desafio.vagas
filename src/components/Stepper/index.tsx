@@ -1,18 +1,19 @@
 import { Plus, Minus } from 'phosphor-react'
-
 import styles from './styles.module.scss'
 
 interface StepperProps {
   value: number
   minValue?: number
   maxValue?: number
-  setValue: (value: number) => void
-  onChange: (event: React.ChangeEvent<HTMLInputElement>) => void
+  onChange: (
+    e: React.ChangeEvent<HTMLInputElement> | number,
+    min?: number,
+    max?: number,
+  ) => void
 }
 
 export default function Stepper({
   value,
-  setValue,
   onChange,
   maxValue = 100,
   minValue = 0,
@@ -23,7 +24,7 @@ export default function Stepper({
         type="button"
         className={styles.stepperButton}
         aria-label="Diminuir valor"
-        onClick={() => value > minValue && setValue(value - 1)}
+        onClick={() => onChange(value - 1, minValue, maxValue)}
         disabled={value === minValue}
         data-testid="quantity-decrement"
       >
@@ -34,7 +35,7 @@ export default function Stepper({
         className={styles.stepperInput}
         value={value}
         aria-label="Quantidade de stickers"
-        onChange={onChange}
+        onChange={(e) => onChange(e, minValue, maxValue)}
         min={minValue}
         max={maxValue}
       />
@@ -42,7 +43,7 @@ export default function Stepper({
         type="button"
         className={styles.stepperButton}
         aria-label="Aumentar valor"
-        onClick={() => value < maxValue && setValue(value + 1)}
+        onClick={() => onChange(value + 1, minValue, maxValue)}
         disabled={value === maxValue}
         data-testid="quantity-increment"
       >
