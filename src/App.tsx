@@ -15,11 +15,11 @@ export default function App() {
 
   const handleChangeQuantity = (
     e: React.ChangeEvent<HTMLInputElement> | number,
-    min: number,
-    max: number,
+    min?: number,
+    max?: number,
   ) => {
     const value = typeof e === 'number' ? e : Number(e.target.value)
-    if (value >= min && value <= max) {
+    if (value >= (min ?? 0) && value <= (max ?? 100)) {
       dispatch({ type: 'SET_QUANTITY', quantity: value })
     }
   }
