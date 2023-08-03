@@ -1,5 +1,4 @@
 import { ChangeEvent } from 'react'
-import { useTheme } from './contexts/ThemeContext'
 import { useFormContext } from './contexts/FormContext'
 
 import Stepper from './components/Stepper'
