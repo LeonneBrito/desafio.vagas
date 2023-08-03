@@ -14,6 +14,7 @@ export default function Footer() {
           className={`${styles.message} ${
             state.submit.success ? styles.success : styles.error
           }`}
+          data-testid="message"
         >
           {state.submit.message}
         </span>
@@ -23,6 +24,7 @@ export default function Footer() {
         type="submit"
         aria-label="Enviar formulário"
         onClick={handleSubmit}
+        data-testid="submit-button"
       >
         Enviar
       </Button>

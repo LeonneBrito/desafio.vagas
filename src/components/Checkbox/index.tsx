@@ -20,7 +20,11 @@ export default function Checkbox({
   disabled = false,
 }: CheckboxProps) {
   return (
-    <label htmlFor={name} className={styles.checkbox}>
+    <label
+      htmlFor={name}
+      className={styles.checkbox}
+      data-testid={`checkbox-${value}`}
+    >
       <input
         type="checkbox"
         name={name}

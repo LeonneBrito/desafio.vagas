@@ -19,6 +19,7 @@ export default function Textarea({ name, value, onChange }: TextareaProps) {
       rows={7}
       aria-label="Observações"
       role="textbox"
+      data-testid="observations"
     />
   )
 }

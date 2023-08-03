@@ -44,6 +44,7 @@ export default function App() {
               name={option.label}
               value={option.value}
               onChange={handleChangeStickers}
+              data-testid={`checkbox-${option.value}`}
             />
           ))}
         </div>

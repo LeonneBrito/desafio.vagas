@@ -25,6 +25,7 @@ export default function Stepper({
         aria-label="Diminuir valor"
         onClick={() => value > minValue && setValue(value - 1)}
         disabled={value === minValue}
+        data-testid="quantity-decrement"
       >
         <Minus size={24} weight="bold" />
       </button>
@@ -43,6 +44,7 @@ export default function Stepper({
         aria-label="Aumentar valor"
         onClick={() => value < maxValue && setValue(value + 1)}
         disabled={value === maxValue}
+        data-testid="quantity-increment"
       >
         <Plus size={24} weight="bold" />
       </button>
