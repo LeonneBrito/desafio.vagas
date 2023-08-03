@@ -19,7 +19,11 @@ export default function Stepper({
   minValue = 0,
 }: StepperProps) {
   return (
-    <div className={styles.stepper} aria-label={`Stepper: ${value}`}>
+    <div
+      className={styles.stepper}
+      role="region"
+      aria-label={`Stepper: ${value}`}
+    >
       <button
         type="button"
         className={styles.stepperButton}
@@ -27,6 +31,7 @@ export default function Stepper({
         onClick={() => onChange(value - 1, minValue, maxValue)}
         disabled={value === minValue}
         data-testid="quantity-decrement"
+        aria-disabled={value === minValue}
       >
         <Minus size={24} weight="bold" />
       </button>
@@ -46,6 +51,7 @@ export default function Stepper({
         onClick={() => onChange(value + 1, minValue, maxValue)}
         disabled={value === maxValue}
         data-testid="quantity-increment"
+        aria-disabled={value === maxValue}
       >
         <Plus size={24} weight="bold" />
       </button>

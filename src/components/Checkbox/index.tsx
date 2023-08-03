@@ -19,6 +19,12 @@ export default function Checkbox({
   onChange,
   disabled = false,
 }: CheckboxProps) {
+  const handleKeyDown = (event: React.KeyboardEvent<HTMLInputElement>) => {
+    if (event.key === 'Enter' && !disabled) {
+      onChange(event as unknown as ChangeEvent<HTMLInputElement>)
+    }
+  }
+
   return (
     <label
       htmlFor={name}
@@ -34,7 +40,10 @@ export default function Checkbox({
         onChange={onChange}
         disabled={disabled}
         aria-label={label}
+        aria-checked={checked}
         role="checkbox"
+        tabIndex={disabled ? -1 : 0}
+        onKeyDown={handleKeyDown}
       />
       <span className={styles.checkmark} />
       {label}

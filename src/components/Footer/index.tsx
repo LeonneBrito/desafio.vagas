@@ -25,6 +25,7 @@ export default function Footer() {
         aria-label="Enviar formulário"
         onClick={handleSubmit}
         data-testid="submit-button"
+        disabled={state.loading}
       >
         Enviar
       </Button>
