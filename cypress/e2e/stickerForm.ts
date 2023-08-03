@@ -5,7 +5,7 @@ describe('E2E test - Sticker Form', () => {
     cy.visit('/')
   })
 
-  it('should select stickers, set quantity, and add observations', () => {
+  it('should select stickers, set quantity, and add observations and submit', () => {
     // Seleciona um adesivo clicando no checkbox
     cy.get('[data-testid="checkbox-react"]').click()
 
